@@ -96,7 +96,8 @@ grid2 = [ [ 3, 1, 6, 5, 7, 8, 4, 9, 2 ],
          [ 7, 4, 5, 0, 8, 6, 3, 1, 0 ] ];
 
 if __name__ == '__main__':
-	g=Sudoko(grid2)
-	g.sleepAndPrint()
+	g=Sudoko(grid)
+	# g.sleepAndPrint()
+	g.printGrid()
 	g.solve()
 	g.printGrid()
