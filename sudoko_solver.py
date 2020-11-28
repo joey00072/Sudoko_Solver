@@ -2,10 +2,11 @@ import time
 
 class Sudoko(object):
 	"""docstring for Sudoko"""
-	def __init__(self, grid):
+	def __init__(self, grid,print_grid=False):
 		super(Sudoko, self).__init__()
 		self.grid = grid
 		self.sleep= None
+		self.print_grid = print_grid
 	def sleepAndPrint(self,Time=0.2):
 		self.sleep=Time
 
@@ -19,6 +20,10 @@ class Sudoko(object):
 				print(self.grid[i][j],end=" ")
 
 			print("")
+	def getGrid(self):
+		return self.grid
+	def setPrintGrid(self,flg):
+		self.print_grid=flg
 
 	def findEmpty(self):
 		'''return empty cell co-ordinate from grid'''
@@ -53,7 +58,8 @@ class Sudoko(object):
 	def solve(self):
 		if self.sleep:
 			time.sleep(self.sleep/2)
-			self.printGrid()
+			if self.print_grid:
+				self.printGrid()
 			time.sleep(self.sleep/2)
 			
 
@@ -88,8 +94,9 @@ grid = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
 if __name__ == '__main__':
 	g=Sudoko(grid)
 	g.sleepAndPrint()
-	# g.printGrid()
+	g.printGrid()
 	g.solve()
+	g.printGrid()
 	g.printGrid()
 
 	
