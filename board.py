@@ -21,7 +21,7 @@ class Board(Sudoko):
 		self.grid = grid
 		self.grid_original = copy.deepcopy(grid)
 		self.size=9
-		self.sleep=0.002
+		self.sleep=0.005
 
 	def drawGrid(self):
 		screen.fill(WHITE)
@@ -29,12 +29,12 @@ class Board(Sudoko):
 		for i in range(self.size):
 				for j in range(self.size):
 						if self.grid_original[i][j]!=0 :
-							num=MYFONT.render(str(grid[i][j]), False, (10, 10, 200))
+							num=MYFONT.render(str(grid[i][j]), True, (10, 10, 200))
 							x_pos= int((j)/self.size * WIDTH)+ 20
 							y_pos= int((i)/self.size * WIDTH)+ 10
 							screen.blit(num,(x_pos,y_pos))
 						elif self.grid[i][j]!=0 :
-							num=MYFONT.render(str(grid[i][j]), False, (0, 0, 0))
+							num=MYFONT.render(str(grid[i][j]), True, (0, 0, 0))
 							x_pos= int((j)/self.size * WIDTH)+ 20
 							y_pos= int((i)/self.size * WIDTH)+ 10
 							screen.blit(num,(x_pos,y_pos))
